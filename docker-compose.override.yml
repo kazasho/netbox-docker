@@ -4,7 +4,7 @@ services:
     ports:
     - 8002:8080
     volumes:
-    - /docker/docker/netbox:/etc/netbox/config:z,ro
+    - /docker/netbox:/etc/netbox/config:z,ro
     - /docker/netbox-media-files:/opt/netbox/netbox/media:z,rw
     - /docker/netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - /docker/netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
