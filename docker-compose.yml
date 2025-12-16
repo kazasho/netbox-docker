@@ -8,6 +8,22 @@ services:
     - redis-cache
     env_file: env/netbox.env
     user: 'unit:root'
+    labels:
+      # Enable Traefik for this container
+      - "traefik.enable=true"
+      # Define the router: name it 'pihole'
+      - "traefik.http.routers.netbox.rule=Host(`netbox.kazasho.com`)"
+      # Enable TLS
+      - "traefik.http.routers.netbox.tls=true"
+      - "traefik.http.routers.netbox.tls.certresolver=letencrypt"
+      # Map the router to the 'websecure' entry point
+      - "traefik.http.routers.netbox.entrypoints=websecure"
+      # Define the service port (the port the application uses internally)
+      - "traefik.http.services.netbox.loadbalancer.server.port=8002"
+      # Pass the host header
+      - "traefik.http.services.netbox.loadbalancer.passhostheader=true"
+      ## Middlewares
+      #- "traefik.http.routers.pihole.middlewares=authentik-auth@file" 
     healthcheck:
       start_period: 60s
       timeout: 3s
