@@ -16,8 +16,8 @@ services:
       # Enable TLS
       - "traefik.http.routers.netbox.tls=true"
       - "traefik.http.routers.netbox.tls.certresolver=letencrypt"
-      # Map the router to the 'websecure' entry point
-      - "traefik.http.routers.netbox.entrypoints=websecure"
+      # Map the router to the 'web' entry point
+      - "traefik.http.routers.netbox.entrypoints=web"
       # Define the service port (the port the application uses internally)
       - "traefik.http.services.netbox.loadbalancer.server.port=8002"
       # Pass the host header
