@@ -21,7 +21,7 @@ services:
       # Define the service port (the port the application uses internally)
       - "traefik.http.services.netbox.loadbalancer.server.port=8002"
       # Pass the host header
-      - "traefik.http.services.netbox.loadbalancer.passhostheader=true"
+      #- "traefik.http.services.netbox.loadbalancer.passhostheader=true"
       ## Middlewares
       #- "traefik.http.routers.pihole.middlewares=authentik-auth@file"
     networks:
