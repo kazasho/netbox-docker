@@ -8,7 +8,7 @@ services:
     - redis-cache
     env_file: env/netbox.env
     user: 'unit:root'
-    labels:
+    #labels:
       # Enable Traefik for this container
       #- "traefik.enable=true"
       # Define the router: name it 'netbox'
