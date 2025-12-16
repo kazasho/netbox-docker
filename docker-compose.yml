@@ -11,11 +11,11 @@ services:
     labels:
       # Enable Traefik for this container
       - "traefik.enable=true"
-      # Define the router: name it 'pihole'
+      # Define the router: name it 'netbox'
       - "traefik.http.routers.netbox.rule=Host(`netbox.kazasho.com`)"
       # Enable TLS
-      #- "traefik.http.routers.netbox.tls=true"
-      #- "traefik.http.routers.netbox.tls.certresolver=letencrypt"
+      - "traefik.http.routers.netbox.tls=true"
+      - "traefik.http.routers.netbox.tls.certresolver=letencrypt"
       # Map the router to the 'web' entry point
       - "traefik.http.routers.netbox.entrypoints=web"
       # Define the service port (the port the application uses internally)
